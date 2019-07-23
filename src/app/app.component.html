@@ -1,8 +1,19 @@
+
 <div class="header"><h1>Live Train Status</h1>
     <button pButton label="Live Station" (click)="LiveStation=!LiveStation">Live Station</button>
     <button pButton label="Live Train Status" (click)="LiveTrain=!LiveTrain">Live Station</button>
 
 </div>
+<mat-tab-group>
+    <mat-tab label="One">
+      <h1>Some tab content</h1>
+      <p>...</p>
+    </mat-tab>
+    <mat-tab label="Two">
+      <h1>Some more tab content</h1>
+      <p>...</p>
+    </mat-tab>
+  </mat-tab-group>
 <div class="container">
     <app-train *ngIf="LiveStation"></app-train>
 </div>

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TrainComponent } from './Components/train/train.component';
-
+import { MdTabsModule } from 'md-tabs/tabs'; 
 
 @NgModule({
   declarations: [
@@ -16,7 +16,8 @@ import { TrainComponent } from './Components/train/train.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MdTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
