@@ -1,4 +1,8 @@
-<div>
-    <h1>Live Train Status</h1>
-    <app-train></app-train>
+<div class="header"><h1>Live Train Status</h1>
+    <button pButton label="Live Station" (click)="LiveStation=!LiveStation">Live Station</button>
+    <button pButton label="Live Train Status" (click)="LiveTrain=!LiveTrain">Live Station</button>
+
+</div>
+<div class="container">
+    <app-train *ngIf="LiveStation"></app-train>
 </div>

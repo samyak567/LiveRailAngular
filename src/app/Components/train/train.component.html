@@ -1,7 +1,11 @@
 <h1>Trains</h1>
-<p>{{ trains }}</p>
-<!-- <table>
-    <th>Number</th>
+<!-- <p>{{ trains }}</p>
+<p> {{ trains.stationCode }} </p> -->
+
+     <input type="text" [(ngModel)]="stationCode"> 
+     <button (click)="stscode()" (click)="getTrain = true" >Get Trains!</button>
+<table *ngIf="getTrain" class="table">
+   <th>Number</th>
     <th>Source</th>
     <th>Destination</th>
     <th>ScheduleArrival</th>
@@ -13,7 +17,7 @@
     <th>DelayInDeparture</th>
     <tr *ngFor="let trn of trains">
         <td> {{ trn.Number }} </td>
-        <td> {{ trn.Source }} </td>
+        <td> {{ trn.Source }}</td>
         <td> {{ trn.Destination }} </td>
         <td> {{ trn.ScheduleArrival }} </td>
         <td> {{ trn.ScheduleDeparture }} </td>
@@ -22,5 +26,5 @@
         <td> {{ trn.DelayInArrival }} </td>
         <td> {{ trn.ExpectedDeparture }} </td>
         <td> {{ trn.DelayInDeparture }} </td>
-    </tr> 
-</table> -->
+    </tr>
+</table>

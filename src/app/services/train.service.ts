@@ -2,16 +2,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Train } from '../models/Train';
+import { LiveTrain } from '../models/LiveTrain';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrainService {
-  url: string = 'https://indianrailapi.com/api/v2/LiveStation/apikey/da981a412ba73547666130e822e942d4/StationCode/RTM/hours/2/';
+  trainNo: string = "19019";
+  date: string = "20190722";
+  url: string = 'http://localhost:7777/LiveRail/rail/liveStation?stationCode=';
   constructor(private http: HttpClient) { }
 
-  getTrains():Observable<any>{
-    console.log("getTrains service called");
-    return this.http.get<any>(this.url);
+  // getTrains():Observable<Train[]>{
+  //   console.log("getTrains service called");
+  //   return this.http.get<Train[]>(this.url);
+  // }
+
+  // getTrains():Observable<LiveTrain>{
+  //   return this.http.post(this.url,)
+  //   .map(data => this.handleData(data));
+  // }
+
+  getTrains(stationCode): Observable<Train[]> {
+    return this.http.get<Train[]>(this.url+stationCode);
   }
 }
