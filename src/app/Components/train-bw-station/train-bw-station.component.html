@@ -1,0 +1,62 @@
+<div class="col s2"  style="width: 30%; margin-top: 40px; margin-left: 20px">
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="text" class="validate" name="source" [(ngModel)]="fromStation" data-length="10">
+      <label for="source">Source</label>
+    </div>
+    <div class="input-field col s6">
+      <input type="text" class="validate" name="destination" [(ngModel)]="toStation">
+      <label for="destination">Destination</label>
+    </div>
+  </div>
+  <div class="row">
+    <button (click)="stscode()" class="btn waves-effect waves-light">Get Trains!
+      <i class="material-icons right">send</i>
+    </button>
+  </div>
+</div>
+<div class="indeterminate" *ngIf="!getTrain">
+  <img style="margin-left: 50%" src="../../../assets/images/trainloader-loading.gif">
+</div>
+<div *ngIf="getTrainTable">
+  <table class="responsive-table">
+    <tr>
+      <th colspan="7">Trains from {{fromStation}} to {{ toStation }}</th>
+    </tr>
+    <tr>
+      <th>Train No</th>
+      <th>Train Name</th>
+      <th>Train Type</th>
+      <th>Source</th>
+      <th>Departure Time</th>
+      <th>Destination</th>
+      <th>Arrival Time</th>
+      <th>Travel Time</th>
+    </tr>
+    <tr *ngFor="let trn of trains">
+      <td> {{ trn.TrainNo }} </td>
+      <td> {{ trn.TrainName }} </td>
+      <td> {{ trn.TrainType }} </td>
+      <td> {{ trn.Source }} </td>
+      <td> {{ trn.DepartureTime }}</td>
+      <td> {{ trn.Destination }} </td>
+      <td> {{ trn.ArrivalTime }} </td>
+      <td> {{ trn.TravelTime }} </td>
+    </tr>
+  </table>
+  <agm-map [latitude]="sourceLongitude" [longitude]="sourceLatitude" [scrollwheel]="false" [zoom]="5">
+    <ng-container>
+
+         <agm-marker [latitude]="sourceLongitude" [longitude]="sourceLatitude" ></agm-marker> 
+         
+      <agm-polyline  [strokeColor]="red">
+             <agm-polyline-point  [latitude]="sourceLongitude" [longitude]="sourceLatitude"></agm-polyline-point>
+             <agm-polyline-point  [latitude]="destinationLongitude" [longitude]="destinationLatitude"></agm-polyline-point>
+         
+     </agm-polyline>
+
+          <agm-marker [latitude]="destinationLongitude" [longitude]="destinationLatitude" ></agm-marker> 
+          
+   </ng-container>
+ </agm-map>
+</div>

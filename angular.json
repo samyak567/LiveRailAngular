@@ -24,7 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/css/materialize.css",
+              "src/css/materialize.min.css"
             ],
             "scripts": []
           },

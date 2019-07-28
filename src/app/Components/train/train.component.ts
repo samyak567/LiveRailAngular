@@ -13,14 +13,20 @@ export class TrainComponent implements OnInit {
   liveTrain: LiveTrain;
   constructor(private trainService: TrainService) { }
   stationCode : string;
+  getTrain = true;
+  getTrainTable = false;
   ngOnInit() {
     
   }
   stscode(){
+    this.getTrain = false;
+    this.getTrainTable = false;
     this.trainService.getTrains(this.stationCode)
     .subscribe(data => { 
       console.log(data)
       this.trains= data ; 
+      this.getTrain=true;
+      this.getTrainTable=true;
       });
   }
 }

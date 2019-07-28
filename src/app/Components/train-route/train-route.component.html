@@ -1,0 +1,37 @@
+<div class="col s2"  style="width: 30%; margin-top: 40px; margin-left: 20px">
+    <div class="row">
+        <div class="input-field col s6">
+            <input type="text" [formControl]="blank" [(ngModel)]="trainNo" placeholder="Train No">
+            <!-- <label for="TrainNo">TrainNo</label> -->
+        </div>
+    </div>
+    <div class="row">
+        <button (click)="stscode()" class="btn waves-effect waves-light">Get Trains Route!
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
+</div>
+<div class="indeterminate" *ngIf="!getTrainRoute">
+    <img style="margin-left: 50%" src="../../../assets/images/trainloader-loading.gif">
+</div>
+<div *ngIf="getTrainRouteTable">
+    <table class="striped">
+        <th>Serail No</th>
+        <th>Station Code</th>
+        <th>Station Name</th>
+        <th>Departure Time</th>
+        <th>Day</th>
+        <th>Distance</th>
+        <th>Arrival Time</th>
+
+        <tr *ngFor="let trn of trains">
+            <td> {{ trn.SerialNo }} </td>
+            <td> {{ trn.StationCode }}</td>
+            <td> {{ trn.StationName }} </td>
+            <td> {{ trn.DepartureTime }} </td>
+            <td> {{ trn.Day }} </td>
+            <td> {{ trn.Distance }} </td>
+            <td> {{ trn.ArrivalTime }} </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,50 @@
+<div class="col s2"  style="width: 30%; margin-top: 40px; margin-left: 20px">
+   <div class="row">
+      <div class="input-field col s6">
+         <mat-form-field>
+            <input matInput [matDatepicker]="dpicker" [max]="maxDate" [formControl]="dateCtrl"
+               placeholder="Choose a date" name="date" [(ngModel)]="date" ngDefaultControl>
+            <mat-datepicker-toggle matSuffix [for]="dpicker"></mat-datepicker-toggle>
+            <mat-datepicker #dpicker [(ngModel)]="date"></mat-datepicker>
+            <mat-error align="end" *ngIf="dateCtrl.hasError('required')">
+               Enter a valid date
+            </mat-error>
+         </mat-form-field>
+      </div>
+   </div>
+   <div class="row"> 
+      <button (click)="stscode()" class="btn waves-effect waves-light">Get Rescheduled Trains!
+         <i class="material-icons right">send</i>
+      </button>
+   </div>
+</div>
+<div class="indeterminate" *ngIf="!getReschedule">
+   <img style="margin-left: 50%" src="../../../assets/images/trainloader-loading.gif">
+</div>
+<div *ngIf="getRescheduledTrain">
+   <table class="striped">
+      <th>Train No</th>
+      <th>Train Name</th>
+      <th>Start Date</th>
+      <th>Start Time</th>
+      <th>Train Type</th>
+      <th>Source</th>
+      <th>Destination</th>
+      <th>Rescheduled By</th>
+      <th>Rescheduled Date</th>
+      <th>Rescheduled Time</th>
+
+      <tr *ngFor="let trn of trains">
+         <td> {{ trn.TrainNumber }} </td>
+         <td> {{ trn.TrainName }}</td>
+         <td> {{ trn.StartDate }} </td>
+         <td> {{ trn.StartTime }} </td>
+         <td> {{ trn.TrainType }} </td>
+         <td> {{ trn.Source }} </td>
+         <td> {{ trn.Destination }} </td>
+         <td> {{ trn.RescheduledBy }} </td>
+         <td> {{ trn.RescheduledDate }} </td>
+         <td> {{ trn.RescheduledTime }} </td>
+      </tr>
+   </table>
+</div>

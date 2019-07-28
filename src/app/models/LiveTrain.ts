@@ -1,7 +1,9 @@
-export class LiveTrain{
+export class LiveTrain{ 
     TrainNumber : string;
     StationName : string;
-    ScheduleArrivel : string;
+    ScheduleArrival : string;
     ActualArrival: string;
     DelayInArrival : string;
+    currentCoordinates : any;
+    listOfRouteCoordinates : any;
 }
