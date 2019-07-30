@@ -11,6 +11,9 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class RegisterComponent implements OnInit {
 
+  favoriteSeason: string;
+  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
+
   data = false;
   UserForm: any;
   massage: string;

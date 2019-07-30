@@ -14,6 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
+import { MatRadioModule } from '@angular/material/radio'
+
 
 
 
@@ -37,6 +39,7 @@ import { AgmCoreModule } from '@agm/core';
     MatNativeDateModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatRadioModule,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCwMR7CC6squEDkrvuDfD6CqY9RB7nAHKE'
